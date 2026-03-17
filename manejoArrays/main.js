@@ -25,15 +25,10 @@ while (true) {
   let edadU = parseInt(await rl.question("Ingresas edad de usuario: ")); //se queda esperando el ingreso de consola para guardar en la variable
   let notaU = parseFloat(await rl.question("Ingrese nota del usuario: "));
 
-  usuarios.push({
-    //push es un metodo para agregar elementos al final de un array, agregamos los objetos con los datos de cada ubject q serian los users
-    //clave : valor
-    nombreU: nombreU,
-    edadU: edadU,
-    notaU: notaU,
-  });
-  rl.close(); //cerramos esta parte del codigo, ya no ingresaran mas datos ni preguntara mas. PAsamos a la siguiente
+  usuarios.push([nombreU, edadU, notaU]); //push para arreglas los datos en el array
 }
+rl.close(); //cerramos esta parte del codigo, ya no ingresaran mas datos ni preguntara mas. PAsamos a la siguiente
+console.log("ingreeso terminado");
 
 //tercera parte: salida de los dqtos
 
@@ -44,3 +39,7 @@ usuarios.forEach((usuarios) => {
     `Nombre: ${usuarios[0]},\nEdad: ${usuarios[1]}, \nNota: ${usuarios[2]}`,
   );
 });
+
+console.log("promedio: ");
+let sumaN = usuarios.reduce((promedio, usuarios) => promedio + usuarios[2], 0); //reduce es un metodo de arrays q se usa para rreducir el valor de un array a uno solo
+console.log("Promedio general: ", sumaN / usuarios.length); //usuarios.length cuenta la cantidad de users con la suma total para sacar el promedio
