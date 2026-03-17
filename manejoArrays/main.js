@@ -32,13 +32,15 @@ while (true) {
     edadU: edadU,
     notaU: notaU,
   });
+  rl.close(); //cerramos esta parte del codigo, ya no ingresaran mas datos ni preguntara mas. PAsamos a la siguiente
 }
 
 //tercera parte: salida de los dqtos
 
+console.log("usuarios: ");
 usuarios.forEach((usuarios) => {
   //forEach metodo de arrays para recorrelos, se ejecuta poc cada elemento
   console.log(
-    `Nombre: ${usuarios.nombreU} \nEdad: ${usuarios.edadU}, \nNota: ${usuarios.notaU}`,
+    `Nombre: ${usuarios[0]},\nEdad: ${usuarios[1]}, \nNota: ${usuarios[2]}`,
   );
 });
