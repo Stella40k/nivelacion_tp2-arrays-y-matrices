@@ -22,8 +22,8 @@ while (true) {
     "Ingresar nombre de usuario (O 'salir' para finalizar ingreso): ",
   );
   if (nombreU === "salir") break; // el break finaliza el ciclo while, no toma mas datos y pasa a la proxima parte
-  let edadU = await rl.question("Ingresas edad de usuario: ");
-  let notaU = await rl.question("Ingrese nota del usuario: ");
+  let edadU = parseInt(await rl.question("Ingresas edad de usuario: ")); //se queda esperando el ingreso de consola para guardar en la variable
+  let notaU = parseFloat(await rl.question("Ingrese nota del usuario: "));
 
   usuarios.push({
     //push es un metodo para agregar elementos al final de un array, agregamos los objetos con los datos de cada ubject q serian los users
@@ -33,3 +33,12 @@ while (true) {
     notaU: notaU,
   });
 }
+
+//tercera parte: salida de los dqtos
+
+usuarios.forEach((usuarios) => {
+  //forEach metodo de arrays para recorrelos, se ejecuta poc cada elemento
+  console.log(
+    `Nombre: ${usuarios.nombreU} \nEdad: ${usuarios.edadU}, \nNota: ${usuarios.notaU}`,
+  );
+});
